@@ -8,10 +8,16 @@ import errorSfx from "@assets/sound/error.ogg";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore Ignore broken library typings
 import useSound from "use-sound";
+import { useEffect } from "react";
 
 function App() {
   const [playSuccess] = useSound(successSfx);
   const [playError] = useSound(errorSfx);
+
+  //just for testing
+  useEffect(()=>{
+    toast("Testing!")
+  },[])
 
   const handleUploadSuccess = (response: BundlerResponse) => {
     toast.promise(response.file as Promise<Blob>, {
